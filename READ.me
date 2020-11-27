@@ -1,0 +1,11 @@
+Spin up emr cluster and choose software configuration spark 2.4.7, you can use m1.large or any instances having memory 7GB up to avoid some conflict in emr cluster deployment.
+
+Note: Must Save the whole code into jar file, and import into S3 bucket. (in this case the jar is saved already in s3 bucket) 
+
+enter command inside emr cluster : this will install the jar file saved from s3
+aws s3 cp s3://aws-logs-723293022411-us-east-1/spark-csv-hive/hive-csv-test_2.11-0.1.jar .
+
+run the jar using command:
+spark-submit --class testing.hivecount ./hive-csv-test_2.11-0.1.jar
+
+done.
